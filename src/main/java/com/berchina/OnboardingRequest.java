@@ -99,12 +99,12 @@ public class OnboardingRequest {
               .orderByHistoricActivityInstanceEndTime().asc()
               .list();
           for (HistoricActivityInstance activity : activities) {
-            if (activity.getActivityType() == "startEvent") {
+            if ("startEvent".equals(activity.getActivityType())) {
               System.out.println("BEGIN " + processDefinition.getName() 
                   + " [" + processInstance.getProcessDefinitionKey()
                   + "] " + activity.getStartTime());
             }
-            if (activity.getActivityType() == "endEvent") {
+            if ("endEvent".equals(activity.getActivityType())) {
               // Handle edge case where end step happens so fast that the end step
               // and previous step(s) are sorted the same. So, cache the end step 
               //and display it last to represent the logical sequence.
