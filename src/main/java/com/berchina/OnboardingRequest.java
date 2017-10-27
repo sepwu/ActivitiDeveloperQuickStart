@@ -91,7 +91,7 @@ public class OnboardingRequest {
             }
           }
           taskService.complete(task.getId(), variables);
-          
+
           HistoricActivityInstance endActivity = null;
           List<HistoricActivityInstance> activities = 
               historyService.createHistoricActivityInstanceQuery()
